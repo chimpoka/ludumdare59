@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 5, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4751812196136509001}
@@ -79,8 +79,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ef336b14a953e0847bb2e4231075063d, type: 3}
+  m_SortingOrder: 12
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,7 +126,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.5, y: 0.9}
   m_Direction: 0
 --- !u!50 &3734856732006544807
 Rigidbody2D:
@@ -170,11 +170,11 @@ MonoBehaviour:
   moveAction: {fileID: -5737479447830862932, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpAction: {fileID: -1471307570563664368, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   carBody: {fileID: 0}
-  moveSpeed: 10
+  moveSpeed: 2
   airControl: 0.4
-  jumpForce: 7
+  jumpForce: 4
   groundCheck: {fileID: 4751812196136509001}
-  groundRadius: 0.7
+  groundRadius: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -255,7 +255,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0a35208f7b831c449a6ca048526ddc7d, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
