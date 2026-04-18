@@ -4,22 +4,14 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class CharacterInCarController : MonoBehaviour
 {
-    [Header("Input System")]
-    [Tooltip("Действие движения (Value → Vector2)")]
     public InputActionReference moveAction;
-    [Tooltip("Действие прыжка (Button)")]
     public InputActionReference jumpAction;
-
-    [Header("Физика машины")]
-    [Tooltip("Rigidbody2D кузова машины (для компенсации скольжения)")]
+    
     public Rigidbody2D carBody;
-
-    [Header("Параметры")]
+    
     public float moveSpeed = 5f;
-    [Range(0f, 1f)] public float airControl = 0.4f; // Управление в воздухе
     public float jumpForce = 7f;
-
-    [Header("Проверка земли")]
+    
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask groundLayer;
@@ -29,7 +21,6 @@ public class CharacterInCarController : MonoBehaviour
     private float horizontalInput;
     private bool jumpInput;
     
-    // 1. Добавь в начало класса (после переменных)
     private bool isTouchingWall;
 
     private void Awake() => rb = GetComponent<Rigidbody2D>();
@@ -55,40 +46,24 @@ public class CharacterInCarController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // 1. Проверка контакта с полом/стенами комнаты
-        isGrounded = true;// Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
-
-        // 2. Расчёт целевой скорости по X
-        float speed = isGrounded ? moveSpeed : moveSpeed * airControl;
-        float targetX = horizontalInput * speed;
-
-        // 3. Компенсация движения машины (персонаж не будет "отставать" при разгоне/торможении)
-        if (isGrounded && carBody != null)
-            targetX += carBody.linearVelocity.x;
-
-        // 4. Применяем скорость. Y не трогаем (гравитация и прыжки работают сами)
+        float targetX = horizontalInput * moveSpeed;
+        targetX += carBody.linearVelocity.x;
+        
         Vector2 vel = rb.linearVelocity;
         vel.x = targetX;
         rb.linearVelocity = vel;
-
-        if (isTouchingWall && carBody != null)
-        {
-            // Заменяем скорость персонажа на скорость машины по X.
-            // Это физически "разрывает" эффект толкания: персонаж просто скользит вместе со стеной.
-            rb.linearVelocity = new Vector2(carBody.linearVelocity.x, rb.linearVelocity.y);
-        }
         
-        // 5. Прыжок
+        // if (isTouchingWall && carBody != null)
+        // {
+        //     rb.linearVelocity = new Vector2(carBody.linearVelocity.x, rb.linearVelocity.y);
+        // }
+        
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
         if (jumpInput && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpInput = false;
         }
-
-        // 6. Жёсткая блокировка вращения (персонаж всегда горизонтален)
-        //rb.freezeRotation = true;
-        //transform.rotation = Quaternion.identity;
     }
     
     private void OnCollisionStay2D(Collision2D collision)
@@ -109,7 +84,6 @@ public class CharacterInCarController : MonoBehaviour
         }
     }
     
-    // Визуализация радиуса проверки земли в Scene
     private void OnDrawGizmosSelected()
     {
         if (groundCheck != null)
