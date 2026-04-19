@@ -44,5 +44,8 @@ public class CharacterInCarAnimator : MonoBehaviour
 
         var targetRotation = lastHorizontalDirection >= 0 ? Quaternion.Euler(0, 0, 0) : Quaternion.Euler(0, 180, 0);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationAnimationSpeed);
+        
+        // Jump animation
+        
     }
 }

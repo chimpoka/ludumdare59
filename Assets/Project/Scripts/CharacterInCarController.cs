@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,22 +8,28 @@ public class CharacterInCarController : MonoBehaviour
 {
     public InputActionReference moveAction;
     public InputActionReference jumpAction;
+    public InputActionReference fallAction;
     
     public Rigidbody2D carBody;
     
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
+    public float fallForce = 3f;
+    public float fallOffsetY = -0.5f;
     public float gravity = 0.1f;
     
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask groundLayer;
 
+    public float disableLadderTimeOnFall = 0.1f;
+
     private Rigidbody2D rb;
     private bool isGrounded;
     
-    [NonSerialized] public bool jumpInput;
     [NonSerialized] public float horizontalInput;
+    [NonSerialized] public bool jumpInput;
+    [NonSerialized] public bool fallInput;
     //private float verticalInput;
     
     // private bool isTouchingWall_Left;
@@ -37,12 +44,14 @@ public class CharacterInCarController : MonoBehaviour
     {
         moveAction?.action.Enable();
         jumpAction?.action.Enable();
+        fallAction?.action.Enable();
     }
 
     private void OnDisable()
     {
         moveAction?.action.Disable();
         jumpAction?.action.Disable();
+        fallAction?.action.Disable();
     }
 
     void Update()
@@ -52,6 +61,9 @@ public class CharacterInCarController : MonoBehaviour
         
         if (jumpAction?.action.triggered == true)
             jumpInput = true;
+        
+        if (fallAction?.action.triggered == true)
+            fallInput = true;
     }
 
     void FixedUpdate()
@@ -61,44 +73,48 @@ public class CharacterInCarController : MonoBehaviour
         
         velocity.x = horizontalInput * moveSpeed;
         velocity.x += carBody.linearVelocity.x;
-
-        // if (isTouchingWall_Left && velocity.x < localZeroVelocity.x || 
-        //     isTouchingWall_Right && velocity.x > localZeroVelocity.x)
-        //     velocity.x = localZeroVelocity.x;
         
         // Jump
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+        Collider2D feetOverlapObject = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+        isGrounded = feetOverlapObject != null;
         if (jumpInput && isGrounded)
         {
             //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             velocity.y = jumpForce;
-            jumpInput = false;
+        }
+        
+        // Fall
+        if (fallInput && isGrounded)
+        {
+            if (feetOverlapObject.CompareTag("Ladder"))
+            {
+                var pos = transform.position;
+                pos.y += fallOffsetY;
+                transform.position = pos;
+                
+                velocity.y = fallForce;
+                
+                feetOverlapObject.gameObject.SetActive(false);
+                StartCoroutine(WaitAndEnableObject(feetOverlapObject.gameObject, disableLadderTimeOnFall));
+            }
         }
         
         // Gravity 
         velocity.y -= gravity;
-        // if (velocity.y < localZeroVelocity.y)
-        //     velocity.y = localZeroVelocity.y;
             
         // Result
         rb.linearVelocity = velocity;
 
         jumpInput = false;
+        fallInput = false;
     }
 
-    // private void OnTriggerStay2D(Collider2D collision)
-    // {
-    //     if (collision.CompareTag("RoomWall_Left"))
-    //         isTouchingWall_Left = true;
-    //     else  if (collision.CompareTag("RoomWall_Right"))
-    //         isTouchingWall_Right = true; 
-    // }
-    //
-    // private void OnTriggerExit2D(Collider2D other)
-    // {
-    //     isTouchingWall_Left = false;
-    //     isTouchingWall_Right = false;
-    // }
+    private IEnumerator WaitAndEnableObject(GameObject InObject, float InTime)
+    {
+        yield return new WaitForSeconds(InTime);
+        
+        InObject.SetActive(true);
+    }
     
     private void OnDrawGizmosSelected()
     {
