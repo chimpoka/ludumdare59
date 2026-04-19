@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class HelicopterImpulseController : MonoBehaviour
@@ -6,6 +7,8 @@ public class HelicopterImpulseController : MonoBehaviour
     public Rigidbody2D rigidBody;
     public float impulseStrength = 50f; 
     public InputActionReference impulseButtonAction;
+    
+    public event Action onImpulseTriggered;
 
     private void OnEnable()
     {
@@ -31,5 +34,7 @@ public class HelicopterImpulseController : MonoBehaviour
             return;
         
         rigidBody.AddForce(Vector2.up * impulseStrength, ForceMode2D.Impulse);
+        
+        onImpulseTriggered?.Invoke();
     }
 }
