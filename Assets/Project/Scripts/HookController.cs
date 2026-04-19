@@ -24,10 +24,27 @@ public class HookController : MonoBehaviour
     // ���������� �� ��������!
     public void Pick()
     {
-        Collider2D hit = Physics2D.OverlapCircle(hookPoint.position, 2f, Hookable);
+        Collider2D hit = Physics2D.OverlapCircle(hookPoint.position, 1f, Hookable);
+        animator.SetBool("isHooking", false);
+        Debug.Log("Хук");
 
         if (hit != null && hit.attachedRigidbody != null)
         {
+
+            HookableObject hookable = hit.GetComponent<HookableObject>();
+
+            if (hookable != null)
+            {
+                if (hookable.type == HookType.Carry)
+                {
+                    animator.SetTrigger("Lift"); // анимация подъёма
+                }
+                else if (hookable.type == HookType.Drag)
+                {
+                    animator.SetTrigger("Drag"); // другая анимация
+                }
+            }
+
             carriedObject = hit.attachedRigidbody;
 
             carriedObject.linearVelocity = Vector2.zero;
@@ -35,9 +52,8 @@ public class HookController : MonoBehaviour
 
             carriedObject.transform.parent = hookPoint;
             carriedObject.transform.localPosition = Vector3.zero;
-
-            Debug.Log(hit);
         }
+
     }
 
     public void Drop()
