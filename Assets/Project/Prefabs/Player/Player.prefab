@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2896929961728617367}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -171,8 +171,8 @@ MonoBehaviour:
   jumpAction: {fileID: -1471307570563664368, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   carBody: {fileID: 0}
   moveSpeed: 2
-  airControl: 0.4
-  jumpForce: 4
+  jumpForce: 5
+  gravity: 0.15
   groundCheck: {fileID: 4751812196136509001}
   groundRadius: 0.1
   groundLayer:
