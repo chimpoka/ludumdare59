@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -21,7 +22,10 @@ public class CharacterInCarController : MonoBehaviour
     private float horizontalInput;
     private bool jumpInput;
     
-    private bool isTouchingWall;
+    private bool isTouchingWall_Left;
+    private bool isTouchingWall_Right;
+
+    private Vector2 localZeroVelocity => carBody.linearVelocity;
 
     private void Awake() => rb = GetComponent<Rigidbody2D>();
 
@@ -46,18 +50,19 @@ public class CharacterInCarController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float targetX = horizontalInput * moveSpeed;
-        targetX += carBody.linearVelocity.x;
+        // Velocity
+        Vector2 velocity = rb.linearVelocity;
         
-        Vector2 vel = rb.linearVelocity;
-        vel.x = targetX;
-        rb.linearVelocity = vel;
+        velocity.x = horizontalInput * moveSpeed;
+        velocity.x += carBody.linearVelocity.x;
+
+        if (isTouchingWall_Left && velocity.x < localZeroVelocity.x || 
+            isTouchingWall_Right && velocity.x > localZeroVelocity.x)
+            velocity.x = localZeroVelocity.x;
+
+        rb.linearVelocity = velocity;
         
-        // if (isTouchingWall && carBody != null)
-        // {
-        //     rb.linearVelocity = new Vector2(carBody.linearVelocity.x, rb.linearVelocity.y);
-        // }
-        
+        // Jump
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
         if (jumpInput && isGrounded)
         {
@@ -65,23 +70,19 @@ public class CharacterInCarController : MonoBehaviour
             jumpInput = false;
         }
     }
-    
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        return;
-        
-        isTouchingWall = false; // Сбрасываем каждый кадр физического контакта
 
-        foreach (ContactPoint2D contact in collision.contacts)
-        {
-            // |normal.x| > 0.8 означает, что поверхность наклонена менее чем на ~37° от вертикали
-            // Это надёжно определяет боковые стены, даже если они под небольшим углом
-            if (Mathf.Abs(contact.normal.x) > 0.8f)
-            {
-                isTouchingWall = true;
-                break;
-            }
-        }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("RoomWall_Left"))
+            isTouchingWall_Left = true;
+        else  if (collision.CompareTag("RoomWall_Right"))
+            isTouchingWall_Right = true; 
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        isTouchingWall_Left = false;
+        isTouchingWall_Right = false;
     }
     
     private void OnDrawGizmosSelected()
