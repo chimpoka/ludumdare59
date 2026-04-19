@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Project.Scripts
 {
@@ -10,7 +11,12 @@ namespace Project.Scripts
         { 
             TryPress(other);
         }
-    
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            TryRelease();
+        }
+
         private void TryPress(Collider2D other)
         {
             if (!other.CompareTag("Player")) 
@@ -27,6 +33,11 @@ namespace Project.Scripts
             {
                 carButton.PressButton();
             }
+        }
+
+        private void TryRelease()
+        {
+            carButton.ReleaseButton();
         }
         
         private void OnDrawGizmosSelected()
