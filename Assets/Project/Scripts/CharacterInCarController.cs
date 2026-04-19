@@ -12,6 +12,7 @@ public class CharacterInCarController : MonoBehaviour
     
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
+    public float gravity = 0.1f;
     
     public Transform groundCheck;
     public float groundRadius = 0.2f;
@@ -19,13 +20,16 @@ public class CharacterInCarController : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded;
-    private float horizontalInput;
     private bool jumpInput;
     
-    private bool isTouchingWall_Left;
-    private bool isTouchingWall_Right;
+    private float horizontalInput;
+    //private float verticalInput;
+    
+    // private bool isTouchingWall_Left;
+    // private bool isTouchingWall_Right;
 
-    private Vector2 localZeroVelocity => carBody.linearVelocity;
+    public Vector2 localZeroVelocity => carBody.linearVelocity;
+    public Vector2 localVelocity => rb.linearVelocity - localZeroVelocity;
 
     private void Awake() => rb = GetComponent<Rigidbody2D>();
 
@@ -44,6 +48,8 @@ public class CharacterInCarController : MonoBehaviour
     void Update()
     {
         horizontalInput = moveAction?.action.ReadValue<Vector2>().x ?? 0f;
+        // verticalInput = moveAction?.action.ReadValue<Vector2>().y ?? 0f;
+        
         if (jumpAction?.action.triggered == true)
             jumpInput = true;
     }
@@ -56,34 +62,43 @@ public class CharacterInCarController : MonoBehaviour
         velocity.x = horizontalInput * moveSpeed;
         velocity.x += carBody.linearVelocity.x;
 
-        if (isTouchingWall_Left && velocity.x < localZeroVelocity.x || 
-            isTouchingWall_Right && velocity.x > localZeroVelocity.x)
-            velocity.x = localZeroVelocity.x;
-
-        rb.linearVelocity = velocity;
+        // if (isTouchingWall_Left && velocity.x < localZeroVelocity.x || 
+        //     isTouchingWall_Right && velocity.x > localZeroVelocity.x)
+        //     velocity.x = localZeroVelocity.x;
         
         // Jump
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
         if (jumpInput && isGrounded)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            //rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            velocity.y = jumpForce;
             jumpInput = false;
         }
+        
+        // Gravity 
+        velocity.y -= gravity;
+        // if (velocity.y < localZeroVelocity.y)
+        //     velocity.y = localZeroVelocity.y;
+            
+        // Result
+        rb.linearVelocity = velocity;
+
+        jumpInput = false;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("RoomWall_Left"))
-            isTouchingWall_Left = true;
-        else  if (collision.CompareTag("RoomWall_Right"))
-            isTouchingWall_Right = true; 
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        isTouchingWall_Left = false;
-        isTouchingWall_Right = false;
-    }
+    // private void OnTriggerStay2D(Collider2D collision)
+    // {
+    //     if (collision.CompareTag("RoomWall_Left"))
+    //         isTouchingWall_Left = true;
+    //     else  if (collision.CompareTag("RoomWall_Right"))
+    //         isTouchingWall_Right = true; 
+    // }
+    //
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     isTouchingWall_Left = false;
+    //     isTouchingWall_Right = false;
+    // }
     
     private void OnDrawGizmosSelected()
     {
