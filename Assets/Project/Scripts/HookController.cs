@@ -24,7 +24,7 @@ public class HookController : MonoBehaviour
     // ���������� �� ��������!
     public void Pick()
     {
-        Collider2D hit = Physics2D.OverlapCircle(hookPoint.position, 1f, Hookable);
+        Collider2D hit = Physics2D.OverlapCircle(hookPoint.position, 2f, Hookable);
 
         if (hit != null && hit.attachedRigidbody != null)
         {
@@ -35,6 +35,8 @@ public class HookController : MonoBehaviour
 
             carriedObject.transform.parent = hookPoint;
             carriedObject.transform.localPosition = Vector3.zero;
+
+            Debug.Log(hit);
         }
     }
 
