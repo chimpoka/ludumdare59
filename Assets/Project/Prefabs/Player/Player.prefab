@@ -174,7 +174,7 @@ MonoBehaviour:
   carBody: {fileID: 0}
   moveSpeed: 3.5
   jumpForce: 5
-  fallForce: 0
+  fallForce: -3
   fallOffsetY: 0
   gravity: 0.15
   groundCheck: {fileID: 4751812196136509001}
