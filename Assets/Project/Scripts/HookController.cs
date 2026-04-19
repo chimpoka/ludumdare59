@@ -1,62 +1,86 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HookController : MonoBehaviour
 {
     public Transform hookPoint;
     public Animator animator;
-    public LayerMask Hookable;
-
+    public LayerMask hookableLayer;
+    public InputActionReference hookButtonAction;
+    public float grabRadius = 1;
+    
     private Rigidbody2D carriedObject;
 
-    void Update()
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (hookButtonAction != null)
         {
-            animator.SetBool("isHooking", true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Drop();
+            hookButtonAction.action.Enable();
+            hookButtonAction.action.started += TryTriggerHookAction;
         }
     }
 
-    // ���������� �� ��������!
-    public void Pick()
+    private void OnDisable()
     {
-        Collider2D hit = Physics2D.OverlapCircle(hookPoint.position, 1f, Hookable);
-        animator.SetBool("isHooking", false);
-        Debug.Log("Хук");
+        if (hookButtonAction != null)
+        {
+            hookButtonAction.action.started -= TryTriggerHookAction;
+            hookButtonAction.action.Disable();
+        }
+    }
+
+    private void TryTriggerHookAction(InputAction.CallbackContext ctx = default)
+    {
+        TryTriggerHook();
+    }
+
+    public bool TryTriggerHook()
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            
+        // If any animation in progress
+        if (stateInfo.normalizedTime < 1.0f)
+            return false;
+            
+        if (carriedObject == null)
+        {
+            animator.SetTrigger("DownAndGrab");
+        }
+        else
+        {
+            animator.SetTrigger("DropAndUp");
+        }
+
+        return true;
+    }
+    
+    public void Pick(Collider2D ObjectToPick)
+    {
+        carriedObject = ObjectToPick.attachedRigidbody;
+
+        carriedObject.linearVelocity = Vector2.zero;
+        carriedObject.bodyType = RigidbodyType2D.Kinematic;
+
+        carriedObject.transform.parent = hookPoint;
+        carriedObject.transform.localPosition = Vector3.zero;
+    }
+    
+    public void TryPick_AnimEvent()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(hookPoint.position, grabRadius, hookableLayer);
 
         if (hit != null && hit.attachedRigidbody != null)
         {
-
-            HookableObject hookable = hit.GetComponent<HookableObject>();
-
-            if (hookable != null)
-            {
-                if (hookable.type == HookType.Carry)
-                {
-                    animator.SetTrigger("Lift"); // анимация подъёма
-                }
-                else if (hookable.type == HookType.Drag)
-                {
-                    animator.SetTrigger("Drag"); // другая анимация
-                }
-            }
-
-            carriedObject = hit.attachedRigidbody;
-
-            carriedObject.linearVelocity = Vector2.zero;
-            carriedObject.bodyType = RigidbodyType2D.Kinematic;
-
-            carriedObject.transform.parent = hookPoint;
-            carriedObject.transform.localPosition = Vector3.zero;
+            Pick(hit);
+            animator.SetTrigger("UpWithBigObject");
         }
-
+        else
+        {
+            animator.SetTrigger("UpEmpty");
+        }
     }
 
-    public void Drop()
+    public void Drop_AnimEvent()
     {
         if (carriedObject != null)
         {
@@ -65,7 +89,11 @@ public class HookController : MonoBehaviour
 
             carriedObject = null;
         }
-
-        animator.SetBool("isHooking", false);
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(hookPoint.position, grabRadius);
     }
 }
