@@ -13,6 +13,8 @@ public class CarButton : MonoBehaviour
     
     [SerializeField] public SpriteRenderer spriteRenderer;
 
+    [SerializeField] public CarWire connectedWire;
+
     public void PressButton()
     {
         StartCoroutine(OnButtonPressed());
@@ -30,6 +32,8 @@ public class CarButton : MonoBehaviour
         spriteRenderer.sprite = spritePressed;
         
         onPressed?.Invoke();
+        
+        connectedWire.TriggerSignal();
         
         yield break;
     }

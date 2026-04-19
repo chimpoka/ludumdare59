@@ -14,7 +14,8 @@ namespace Project.Scripts
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            TryRelease();
+            if (Application.isPlaying)
+                TryRelease();
         }
 
         private void TryPress(Collider2D other)
