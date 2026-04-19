@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CarActions : MonoBehaviour
 {
-    [SerializeField] private WheelImpulseController wheelImpulseController_RearBackwards;
-    [SerializeField] private WheelImpulseController wheelImpulseController_RearForward;
-    [SerializeField] private WheelImpulseController wheelImpulseController_FrontBackwards;
-    [SerializeField] private WheelImpulseController wheelImpulseController_FrontForward;
-    [SerializeField] private HelicopterImpulseController helicopterImpulseController;
+    [SerializeField] public WheelImpulseController wheelImpulseController_RearBackwards;
+    [SerializeField] public WheelImpulseController wheelImpulseController_RearForward;
+    [SerializeField] public WheelImpulseController wheelImpulseController_FrontBackwards;
+    [SerializeField] public WheelImpulseController wheelImpulseController_FrontForward;
+    [SerializeField] public HelicopterImpulseController helicopterImpulseController;
     
     public void WheelImpulse_RearBackwards()
     {
