@@ -16,7 +16,7 @@ public class HookController : MonoBehaviour
         if (hookButtonAction != null)
         {
             hookButtonAction.action.Enable();
-            hookButtonAction.action.started += TryTriggerHook;
+            hookButtonAction.action.started += TryTriggerHookAction;
         }
     }
 
@@ -24,19 +24,23 @@ public class HookController : MonoBehaviour
     {
         if (hookButtonAction != null)
         {
-            hookButtonAction.action.started -= TryTriggerHook;
+            hookButtonAction.action.started -= TryTriggerHookAction;
             hookButtonAction.action.Disable();
         }
     }
 
-    public void TryTriggerHook(InputAction.CallbackContext ctx = default)
+    private void TryTriggerHookAction(InputAction.CallbackContext ctx = default)
     {
-            
+        TryTriggerHook();
+    }
+
+    public bool TryTriggerHook()
+    {
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
             
         // If any animation in progress
         if (stateInfo.normalizedTime < 1.0f)
-            return;
+            return false;
             
         if (carriedObject == null)
         {
@@ -46,6 +50,8 @@ public class HookController : MonoBehaviour
         {
             animator.SetTrigger("DropAndUp");
         }
+
+        return true;
     }
     
     public void Pick(Collider2D ObjectToPick)
