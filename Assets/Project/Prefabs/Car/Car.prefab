@@ -2490,7 +2490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 2447084338235066023}
-  impulseStrength: 180
+  impulseStrength: 100
   impulseButtonAction: {fileID: 4013640649560091425, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!114 &5871129093719771952
 MonoBehaviour:
