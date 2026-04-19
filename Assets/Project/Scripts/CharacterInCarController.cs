@@ -20,9 +20,9 @@ public class CharacterInCarController : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded;
-    private bool jumpInput;
     
-    private float horizontalInput;
+    [NonSerialized] public bool jumpInput;
+    [NonSerialized] public float horizontalInput;
     //private float verticalInput;
     
     // private bool isTouchingWall_Left;
