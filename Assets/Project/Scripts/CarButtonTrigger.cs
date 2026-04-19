@@ -6,6 +6,7 @@ namespace Project.Scripts
     public class CarButtonTrigger : MonoBehaviour
     {
         [SerializeField] private CarButton carButton;
+        [SerializeField] private Transform characterFeetMustBeHigherThan;
         
         private void OnTriggerEnter2D(Collider2D other) 
         { 
@@ -28,9 +29,8 @@ namespace Project.Scripts
                 return;
 
             float characterFeetY = character.groundCheck.position.y;
-            float characterFeetMustBeHigherThan = transform.position.y + carButton.characterGroundCheckOffset;
             if (character.localVelocity.y <= carButton.characterMaxVelocityY &&
-                characterFeetY >= characterFeetMustBeHigherThan)
+                characterFeetY >= characterFeetMustBeHigherThan.position.y)
             {
                 carButton.PressButton();
             }
@@ -43,11 +43,8 @@ namespace Project.Scripts
         
         private void OnDrawGizmosSelected()
         {
-            var characterFeetMustBeHigherThan = transform.position;
-            characterFeetMustBeHigherThan.y += carButton.characterGroundCheckOffset;
-            
             Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere(characterFeetMustBeHigherThan, 0.1f);
+            Gizmos.DrawWireSphere(characterFeetMustBeHigherThan.position, 0.1f);
         }
     }
 }
