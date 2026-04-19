@@ -95,12 +95,298 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Hook_Anim_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1051
+        width: 61
+        height: 59
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87200ccf43939eb44834bb052fb0ca5a
+      internalID: 1012095146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hook_Anim_1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 1014
+        width: 61
+        height: 97
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d0dcf8f3eca474db7eba22403cba1f
+      internalID: 339192811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hook_Anim_2
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 973
+        width: 61
+        height: 137
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 265c5f6853a421140b0d5e418c9d901e
+      internalID: 533908831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hook_Anim_3
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 938
+        width: 71
+        height: 172
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1068f4dac2156a428266c78a56a1321
+      internalID: 767911846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hook_Anim_4
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 616
+        width: 73
+        height: 215
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ce232ba557d93b40ba8662fcd4870ba
+      internalID: 512233663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hook_Anim_5
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 599
+        width: 73
+        height: 233
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390bc1e010647884489d5133ad9831c7
+      internalID: 324593512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hook_Anim_6
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 575
+        width: 71
+        height: 256
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f3d8d8f1a89c84086ccbf5bfddb275
+      internalID: 644007766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hook_Anim_7
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 573
+        width: 61
+        height: 258
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ad1ae27c9e1624f957df1b235e4dda
+      internalID: 851268235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hook_Anim_8
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 337
+        width: 61
+        height: 216
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a34ea69dc6a4e418b22fa47f454085
+      internalID: -1422788368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hook_Anim_9
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 377
+        width: 61
+        height: 175
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d2c29302c42864fb57477170622643
+      internalID: 1903155072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hook_Anim_10
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 415
+        width: 61
+        height: 137
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4945ceb4cf236ec4b83e5061c0b44b5b
+      internalID: -2070651141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hook_Anim_11
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 455
+        width: 61
+        height: 97
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c513093c09dd2a4da9dfe409d44fb5f
+      internalID: -1378712732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hook_Anim_12
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 214
+        width: 61
+        height: 59
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d332df0175fa8e4681a0b910b4c3fba
+      internalID: -1197703833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6aefb9b829a8d6f43b0e673a6c18ee83
     internalID: 0
     vertices: []
     indices: 
@@ -109,7 +395,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hook_Anim_0: 1012095146
+      Hook_Anim_1: 339192811
+      Hook_Anim_10: -2070651141
+      Hook_Anim_11: -1378712732
+      Hook_Anim_12: -1197703833
+      Hook_Anim_2: 533908831
+      Hook_Anim_3: 767911846
+      Hook_Anim_4: 512233663
+      Hook_Anim_5: 324593512
+      Hook_Anim_6: 644007766
+      Hook_Anim_7: 851268235
+      Hook_Anim_8: -1422788368
+      Hook_Anim_9: 1903155072
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
