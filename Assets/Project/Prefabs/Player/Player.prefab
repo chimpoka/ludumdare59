@@ -170,15 +170,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveAction: {fileID: -5737479447830862932, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpAction: {fileID: -1471307570563664368, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  fallAction: {fileID: -5268805561293360138, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   carBody: {fileID: 0}
   moveSpeed: 3.5
   jumpForce: 5
+  fallForce: 0
+  fallOffsetY: 0
   gravity: 0.15
   groundCheck: {fileID: 4751812196136509001}
   groundRadius: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  disableLadderTimeOnFall: 0.1
 --- !u!114 &280347542925763700
 MonoBehaviour:
   m_ObjectHideFlags: 0
