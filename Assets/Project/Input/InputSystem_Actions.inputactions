@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Character_Fall",
+                    "type": "Button",
+                    "id": "fdb9437e-b8cf-4d4b-87e6-9a510f94d1d6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -117,7 +126,7 @@
                 {
                     "name": "",
                     "id": "af0b022f-bf73-4f1b-abcb-8e10bf66ec61",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -188,6 +197,28 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Character_Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5e3c2d3-3456-4f50-b948-032e3cb8dd90",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Character_Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79769c1c-849f-4d9b-bbf7-191935b6377d",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Character_Fall",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

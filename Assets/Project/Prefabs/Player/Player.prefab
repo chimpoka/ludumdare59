@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1680643254871569461}
   - component: {fileID: 3734856732006544807}
   - component: {fileID: 2896929961728617367}
+  - component: {fileID: 280347542925763700}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4751812196136509001}
@@ -80,11 +81,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 12
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 1989884516, guid: 61bfcbb0173535146900f4d50ee4c5fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 0.58, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -126,7 +127,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 0.9}
+  m_Size: {x: 0.2, y: 0.3}
   m_Direction: 0
 --- !u!50 &3734856732006544807
 Rigidbody2D:
@@ -178,6 +179,26 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &280347542925763700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329551460074318419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9204228145c04806900d149782ecddb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 2896929961728617367}
+  spriteRenderer: {fileID: 6826393610874083108}
+  sprites:
+  - {fileID: 1989884516, guid: 61bfcbb0173535146900f4d50ee4c5fd, type: 3}
+  - {fileID: -1421728671, guid: 61bfcbb0173535146900f4d50ee4c5fd, type: 3}
+  - {fileID: 256548367, guid: 61bfcbb0173535146900f4d50ee4c5fd, type: 3}
+  rotationAnimationSpeed: 0.1
+  moveAnimationSwitchFrameTime: 0.1
 --- !u!1 &6356095885068748876
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 6356095885068748876}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.48, z: 0}
+  m_LocalPosition: {x: 0, y: -0.18, z: 0}
   m_LocalScale: {x: 0.2, y: 0.08, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
