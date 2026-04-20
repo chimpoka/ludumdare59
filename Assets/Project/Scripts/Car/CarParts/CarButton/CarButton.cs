@@ -16,34 +16,15 @@ public class CarButton : MonoBehaviour
 
     public void PressButton()
     {
-        StartCoroutine(OnButtonPressed());
-    }
-
-    public void ReleaseButton()
-    {
-        if (Application.isPlaying)
-            StartCoroutine(OnButtonReleased());
-    }
-
-    public IEnumerator OnButtonPressed()
-    {
-        print($"Pressed: {gameObject.name}");
-
         spriteRenderer.sprite = spritePressed;
         
         onPressed?.Invoke();
         
         connectedWire.TriggerSignal();
-        
-        yield break;
     }
-    
-    public IEnumerator OnButtonReleased()
-    {
-        print($"Released: {gameObject.name}");
 
+    public void ReleaseButton()
+    {
         spriteRenderer.sprite = spriteDefault;
-        
-        yield break;
     }
 }
