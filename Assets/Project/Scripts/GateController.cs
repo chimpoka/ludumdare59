@@ -9,23 +9,23 @@ public class GateController : MonoBehaviour
     [SerializeField] private float maxOpenPosition;
     [SerializeField] private float minClosePosition;
     
-    [NonSerialized] public bool isOpening;
+    [NonSerialized] public bool isOpening = false;
 
     private void FixedUpdate()
     {
-        var pos = movingTransform.position;
+        var pos = movingTransform.localPosition;
         
         if (isOpening)
         {
             pos.y += openSpeed;
-            pos.y = Mathf.Max(pos.y, maxOpenPosition);
+            pos.y = Mathf.Min(pos.y, maxOpenPosition);
         }
         else
         {
             pos.y -= closeSpeed;
-            pos.y = Mathf.Min(pos.y, minClosePosition);
+            pos.y = Mathf.Max(pos.y, minClosePosition);
         }
         
-        movingTransform.position = pos;
+        movingTransform.localPosition = pos;
     }
 }

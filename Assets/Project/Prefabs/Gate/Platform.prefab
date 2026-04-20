@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3478950245311810247}
   - component: {fileID: 6337727733621471647}
   - component: {fileID: 3163362475714707347}
+  - component: {fileID: 5323817110894762900}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 1176228887894298775}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.106, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -2070651683, guid: aab6c350acd951f4cab29dba0d4dbea8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,3 +135,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.73, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &5323817110894762900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176228887894298775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa7c71bd0484ff0a5d7314926f474cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateController: {fileID: 0}
+  spriteDefault: {fileID: -2070651683, guid: aab6c350acd951f4cab29dba0d4dbea8, type: 3}
+  spritePressed: {fileID: 512897661, guid: aab6c350acd951f4cab29dba0d4dbea8, type: 3}
+  spriteRenderer: {fileID: 6337727733621471647}

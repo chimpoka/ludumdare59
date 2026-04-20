@@ -97,8 +97,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5824133771562945174}
   - component: {fileID: 6721615053778978370}
-  - component: {fileID: 5183299152464789293}
-  m_Layer: 0
+  - component: {fileID: 6510587260757045736}
+  m_Layer: 10
   m_Name: Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,13 +175,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &5183299152464789293
-BoxCollider:
+--- !u!61 &6510587260757045736
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680834043534797284}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -190,12 +193,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.3319702, y: 14.61, z: 0.2}
-  m_Center: {x: 0.098602295, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.91, y: 14.61}
+    newSize: {x: 0.91, y: 14.61}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.4, y: 14.61}
+  m_EdgeRadius: 0
 --- !u!1 &839197189635380895
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5647933631398514396}
+  - component: {fileID: 1036847437322919146}
   m_Layer: 0
   m_Name: GatePrefab
   m_TagString: Untagged
@@ -323,6 +349,23 @@ Transform:
   - {fileID: 4023919464566668647}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1036847437322919146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264008688271810553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea778056ba64cd2a43dddbc613dba11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingTransform: {fileID: 5824133771562945174}
+  openSpeed: 0.1
+  closeSpeed: 0.3
+  maxOpenPosition: 12
+  minClosePosition: 0
 --- !u!1 &2662342375485875854
 GameObject:
   m_ObjectHideFlags: 0
