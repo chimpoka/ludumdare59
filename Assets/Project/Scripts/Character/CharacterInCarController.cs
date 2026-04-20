@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -23,6 +24,13 @@ public class CharacterInCarController : MonoBehaviour
     public LayerMask groundLayer;
 
     public float disableLadderTimeOnFall = 0.1f;
+
+    public AudioSource audioSource;
+    public AudioClip[] footstepClips;
+    public AudioClip[] jumpClips;
+
+    public float pitchMin = 0.9f;
+    public float pitchMax = 1.1f;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -60,10 +68,33 @@ public class CharacterInCarController : MonoBehaviour
         // verticalInput = moveAction?.action.ReadValue<Vector2>().y ?? 0f;
         
         if (jumpAction?.action.triggered == true)
+        {
             jumpInput = true;
+            PlayJumpAudio();
+        }    
+            
         
         if (fallAction?.action.triggered == true)
             fallInput = true;
+
+        if(horizontalInput != 0f && !audioSource.isPlaying && isGrounded)
+        {
+            PlayFootstep();
+        }
+    }
+
+    void PlayFootstep()
+    {
+        AudioClip clip = footstepClips[UnityEngine.Random.Range(0, footstepClips.Length)];
+        audioSource.pitch = UnityEngine.Random.Range(pitchMin, pitchMax);
+        audioSource.PlayOneShot(clip);
+    }
+
+    void PlayJumpAudio()
+    {
+        AudioClip clip = jumpClips[UnityEngine.Random.Range(0, jumpClips.Length)];
+        audioSource.pitch = UnityEngine.Random.Range(pitchMin, pitchMax);
+        audioSource.PlayOneShot(clip);
     }
 
     void FixedUpdate()
