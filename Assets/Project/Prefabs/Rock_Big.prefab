@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7042178780768691861}
   - component: {fileID: 8759945550534054323}
-  - component: {fileID: 249707582090518682}
+  - component: {fileID: 3993487127336103420}
+  - component: {fileID: 1463721348073423884}
   m_Layer: 10
   m_Name: Rock_Big
   m_TagString: Untagged
@@ -88,8 +89,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!68 &249707582090518682
-EdgeCollider2D:
+--- !u!58 &3993487127336103420
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,22 +123,32 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 2.1398802, y: -1.6757135}
-  - {x: -1.5368881, y: -1.7227962}
-  - {x: -1.7454885, y: -0.95125145}
-  - {x: -2.0294738, y: -0.050560176}
-  - {x: -2.276793, y: 0.55030227}
-  - {x: -1.4165915, y: 1.3036603}
-  - {x: -0.95655835, y: 1.5816563}
-  - {x: 0.54333603, y: 1.397505}
-  - {x: 1.1746494, y: 0.9890878}
-  - {x: 1.3159584, y: 0.4012621}
-  - {x: 1.7169976, y: -0.7645093}
-  - {x: 2.1505349, y: -1.6251562}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+  m_Offset: {x: -0.2865404, y: -0.23878455}
+  m_Radius: 1.6477556
+--- !u!50 &1463721348073423884
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6551744346892877260}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: ca6987da7343c5c409a36c0bb0443eb3, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
