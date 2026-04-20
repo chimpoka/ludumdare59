@@ -9,8 +9,17 @@ public class CarActions : MonoBehaviour
     [SerializeField] public WheelImpulseController wheelImpulseController_FrontForward;
     [SerializeField] public HelicopterImpulseController helicopterImpulseController;
     [SerializeField] public HookController hookController;
-    [SerializeField] public CarInWaterController CarInWaterController;
-    
+    [SerializeField] public CarInWaterController carInWaterController;
+    [SerializeField] public LightningRodController LightningRodController;
+    [SerializeField] public Rigidbody2D carBody;
+
+    public static CarActions instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public void WheelImpulse_RearBackwards()
     {
         wheelImpulseController_RearBackwards.ApplyImpulse();
@@ -43,6 +52,6 @@ public class CarActions : MonoBehaviour
 
     public void WaterPropellerImpulse()
     {
-        CarInWaterController.ApplyImpulse();
+        carInWaterController.ApplyImpulse();
     }
 }

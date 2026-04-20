@@ -14,15 +14,8 @@ public class CarInWaterController : MonoBehaviour
     [SerializeField] private HelicopterAnimator helicopterAnimator;
     
     [NonSerialized] public WaterVolume waterVolume;
-  
-    public static CarInWaterController instance;
     
     public bool isInWater => waterVolume != null;
-    
-    private void Awake()
-    {
-        instance = this;
-    }
     
     private void OnEnable()
     {

@@ -1,16 +1,14 @@
 ﻿using UnityEngine;
 
-public class WaterVolume : MonoBehaviour
+public class LightningVolume : MonoBehaviour
 {
-    [SerializeField] public Transform surface;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         var car = CarActions.instance;
 
         if (other.attachedRigidbody == car.carBody)
         {
-            car.carInWaterController.waterVolume = this;
+            car.LightningRodController.lightningVolume = this;
         }
     }
 
@@ -20,13 +18,7 @@ public class WaterVolume : MonoBehaviour
 
         if (other.attachedRigidbody == car.carBody)
         {
-            car.carInWaterController.waterVolume = null;
+            car.LightningRodController.lightningVolume = null;
         }
-    }
-    
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(surface.position, 1f);
     }
 }

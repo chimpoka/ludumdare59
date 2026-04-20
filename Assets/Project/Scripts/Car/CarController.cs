@@ -6,13 +6,6 @@ public class CarController : MonoBehaviour
     [SerializeField] public Rigidbody2D carBody;
     [SerializeField] private float carMaxAngle = 40;
 
-    public static CarController instance;
-
-    private void Awake()
-    {
-        instance = this;
-    }
-
     private void FixedUpdate()
     {
         float current = carBody.rotation;
