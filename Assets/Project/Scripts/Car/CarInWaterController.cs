@@ -12,6 +12,7 @@ public class CarInWaterController : MonoBehaviour
     [SerializeField] private float onGroundImpulseStrength = 20f; 
     [SerializeField] private InputActionReference impulseButtonAction;
     [SerializeField] private HelicopterAnimator helicopterAnimator;
+    [SerializeField] private float carMaxAngle = 10;
     
     [NonSerialized] public WaterVolume waterVolume;
 
@@ -66,5 +67,11 @@ public class CarInWaterController : MonoBehaviour
             carBody.linearVelocityY += gravityUp;
         else if (carBody.position.y > waterVolume.surface.position.y)
             carBody.linearVelocityY -= gravityDown;
+        
+        float current = carBody.rotation;
+        float normalized = Mathf.DeltaAngle(0f, current);
+        float clamped = Mathf.Clamp(normalized, -carMaxAngle, carMaxAngle);
+        
+        carBody.rotation = clamped;
     }
 }
