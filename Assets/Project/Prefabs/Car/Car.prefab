@@ -2815,6 +2815,7 @@ GameObject:
   - component: {fileID: 4648183877048229461}
   - component: {fileID: 5871129093719771952}
   - component: {fileID: 3839168366668666294}
+  - component: {fileID: 2968880193288573394}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -2945,7 +2946,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carBody: {fileID: 2447084338235066023}
   carMaxAngle: 40
-  adjustRotationSpeed: 15
+--- !u!114 &2968880193288573394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6740419751319084720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028039f2fd954ed89f055f37b7d11bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carBody: {fileID: 2447084338235066023}
+  gravityUp: 2
+  gravityDown: 0
+  horizontalFriction: 0.1
+  impulseStrength: 50
+  impulseButtonAction: {fileID: -6222292386990485914, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1 &7000803302038984034
 GameObject:
   m_ObjectHideFlags: 0

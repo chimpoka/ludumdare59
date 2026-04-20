@@ -1,10 +1,18 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D carBody;
+    [SerializeField] public Rigidbody2D carBody;
     [SerializeField] private float carMaxAngle = 40;
     //[SerializeField] private float adjustRotationSpeed = 1;
+
+    public static CarController instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void FixedUpdate()
     {
