@@ -19,8 +19,6 @@ public class CarController : MonoBehaviour
         float clamped = Mathf.Clamp(normalized, -carMaxAngle, carMaxAngle);
         
         carBody.rotation = clamped;
-
-        print(carBody.linearVelocity.magnitude);
         
         if (carBody.linearVelocity.magnitude > carMaxVelocity)
             carBody.linearVelocity = carBody.linearVelocity.normalized * carMaxVelocity;

@@ -1381,7 +1381,7 @@ GameObject:
   - component: {fileID: 2356017387292349264}
   - component: {fileID: 6282761212229562593}
   - component: {fileID: 7532892454868562450}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1611,7 +1611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 383382838759174525}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: CharacterRespawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2860,7 +2860,7 @@ GameObject:
   - component: {fileID: 2018800756737674043}
   - component: {fileID: 1812945346138184057}
   - component: {fileID: 6112157621694608126}
-  m_Layer: 11
+  m_Layer: 6
   m_Name: LightningRod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3234,6 +3234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carBody: {fileID: 2447084338235066023}
   carMaxAngle: 20
+  carMaxVelocity: 21
   isEnabled: 1
 --- !u!114 &2968880193288573394
 MonoBehaviour:
@@ -4980,7 +4981,7 @@ GameObject:
   - component: {fileID: 1115110971936412871}
   - component: {fileID: 5175249876442279948}
   - component: {fileID: 7867531487945541240}
-  m_Layer: 11
+  m_Layer: 6
   m_Name: WaterPropeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5156,7 +5157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5026174417097899893}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HookPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
