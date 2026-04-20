@@ -9,6 +9,7 @@ public class CarActions : MonoBehaviour
     [SerializeField] public WheelImpulseController wheelImpulseController_FrontForward;
     [SerializeField] public HelicopterImpulseController helicopterImpulseController;
     [SerializeField] public HookController hookController;
+    [SerializeField] public CarInWaterController CarInWaterController;
     
     public void WheelImpulse_RearBackwards()
     {
@@ -38,5 +39,10 @@ public class CarActions : MonoBehaviour
     public void TryTriggerHook()
     {
         hookController.TryTriggerHook();
+    }
+
+    public void WaterPropellerImpulse()
+    {
+        CarInWaterController.ApplyImpulse();
     }
 }

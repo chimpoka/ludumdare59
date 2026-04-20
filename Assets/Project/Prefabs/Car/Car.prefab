@@ -1186,6 +1186,7 @@ Transform:
   - {fileID: 172151586861754777}
   - {fileID: 8084901788877372250}
   - {fileID: 3022935507124691797}
+  - {fileID: 5503986792627057910}
   m_Father: {fileID: 2384869583393396610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3402664597347380427
@@ -2911,7 +2912,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 2447084338235066023}
-  impulseStrength: 110
+  upImpulseStrength: 110
+  rightImpulseStrength: 10
   impulseButtonAction: {fileID: 4013640649560091425, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   helicopterAnimator: {fileID: 430313267651213758}
 --- !u!114 &5871129093719771952
@@ -2932,6 +2934,7 @@ MonoBehaviour:
   wheelImpulseController_FrontForward: {fileID: 1882469175025402504}
   helicopterImpulseController: {fileID: 4648183877048229461}
   hookController: {fileID: 6282761212229562593}
+  CarInWaterController: {fileID: 2968880193288573394}
 --- !u!114 &3839168366668666294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2963,7 +2966,7 @@ MonoBehaviour:
   gravityDown: 0
   horizontalFriction: 0.1
   inWaterImpulseStrength: 50
-  onGroundImpulseStrength: 10
+  onGroundImpulseStrength: 5
   impulseButtonAction: {fileID: -6222292386990485914, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   helicopterAnimator: {fileID: 7867531487945541240}
 --- !u!1 &7000803302038984034
@@ -3307,6 +3310,7 @@ Transform:
   - {fileID: 3793054404046931358}
   - {fileID: 5427531337625854081}
   - {fileID: 5418676394066441483}
+  - {fileID: 6057951081516441119}
   m_Father: {fileID: 2384869583393396610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7718410223185632127
@@ -5138,6 +5142,100 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
   m_PrefabInstance: {fileID: 22119245160050353}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1059509453523043372
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 81698027421193811}
+    m_Modifications:
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: connectedWire
+      value: 
+      objectReference: {fileID: 8070520650444992948}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5871129093719771952}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: WaterPropellerImpulse
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CarActions, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.908
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.857
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796238873464373241, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_Name
+      value: Button_WaterPropeller
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+--- !u!4 &5503986792627057910 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+  m_PrefabInstance: {fileID: 1059509453523043372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1419661114303766976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5658,6 +5756,55 @@ Transform:
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 216754481464953845, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
   m_PrefabInstance: {fileID: 8238310530169748483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17214c97ae74b0db047cb63e99e5302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &8287237704149318209
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6081790660810101348}
+    m_Modifications:
+    - target: {fileID: 2263127692205747345, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+      propertyPath: m_Name
+      value: Wire_WaterPropeller
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814754857942000734, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814754857942000734, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814754857942000734, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5869624973844009580, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eb73f8bd060b07f409938d03be5963f8, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+--- !u!4 &6057951081516441119 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2814754857942000734, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+  m_PrefabInstance: {fileID: 8287237704149318209}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8070520650444992948 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 216754481464953845, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+  m_PrefabInstance: {fileID: 8287237704149318209}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
