@@ -10,21 +10,26 @@ public class PlatformButton : MonoBehaviour
     
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    [NonSerialized] public bool isPressed;
+    [NonSerialized] public int pressedCount;
+    public bool isPressed => pressedCount > 0;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        spriteRenderer.sprite = spritePressed;
-        
-        isPressed = true;
-        gateController.isOpening = true;
+        pressedCount++;
+
+        UpdatePressed();
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        spriteRenderer.sprite = spriteDefault;
-        
-        isPressed = false;
-        gateController.isOpening = false;
+        pressedCount--;
+
+        UpdatePressed();
+    }
+
+    private void UpdatePressed()
+    {
+        gateController.isOpening = isPressed;
+        spriteRenderer.sprite = isPressed ? spritePressed : spriteDefault;
     }
 }

@@ -19,9 +19,9 @@ TagManager:
   - Character
   - Hookable
   - Ground
-  - 
-  - 
-  - 
+  - Car_Body
+  - CameraVolume
+  - PlatformButton
   - 
   - 
   - 
