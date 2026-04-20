@@ -4,7 +4,6 @@ using UnityEngine.Events;
 
 public class CarButton : MonoBehaviour
 {
-    [SerializeField] public float characterMaxVelocityY = -0.1f;
     [SerializeField] public UnityEvent onPressed;
 
     [SerializeField] public Sprite spriteDefault;

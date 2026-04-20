@@ -11,6 +11,7 @@ public class CarActions : MonoBehaviour
     [SerializeField] public HookController hookController;
     [SerializeField] public CarInWaterController carInWaterController;
     [SerializeField] public LightningRodController lightningRodController;
+    [SerializeField] public CarRestrictions carRestrictions;
     [SerializeField] public Rigidbody2D carBody;
 
     public static CarActions instance;
