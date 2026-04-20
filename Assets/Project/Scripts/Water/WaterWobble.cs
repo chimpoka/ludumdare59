@@ -3,11 +3,11 @@ using UnityEngine;
 public class WaterWobble : MonoBehaviour
 {
     [Header("Movement")]
-    public float amplitude = 0.5f;   // высота волны
-    public float speed = 1f;         // скорость
+    public float amplitude = 0.5f;
+    public float speed = 1f;
 
     [Header("Start Direction")]
-    public bool startUp = true;      // начнЄт вверх или вниз
+    public bool startUp = true;
 
     private Vector3 startPos;
     private float timeOffset;
@@ -15,8 +15,6 @@ public class WaterWobble : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
-
-        // если старт вниз Ч сдвигаем фазу
         timeOffset = startUp ? 0f : Mathf.PI;
     }
 
