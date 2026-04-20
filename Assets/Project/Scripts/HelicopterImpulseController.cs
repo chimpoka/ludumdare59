@@ -5,7 +5,10 @@ using UnityEngine.InputSystem;
 public class HelicopterImpulseController : MonoBehaviour
 {
     public Rigidbody2D rigidBody;
-    public float impulseStrength = 50f; 
+    public float upImpulseStrength = 110f;
+    public float rightImpulseStrength = 10f;
+    
+    
     public InputActionReference impulseButtonAction;
 
     public HelicopterAnimator helicopterAnimator;
@@ -33,7 +36,8 @@ public class HelicopterImpulseController : MonoBehaviour
         if (rigidBody == null) 
             return;
         
-        rigidBody.AddForce(Vector2.up * impulseStrength, ForceMode2D.Impulse);
+        rigidBody.AddForce(Vector2.up * upImpulseStrength, ForceMode2D.Impulse);
+        rigidBody.AddForce(Vector2.right * rightImpulseStrength, ForceMode2D.Impulse);
         
         helicopterAnimator.ApplyImpulseAnimation();
     }
