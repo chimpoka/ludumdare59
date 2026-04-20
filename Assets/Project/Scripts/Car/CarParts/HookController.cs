@@ -11,6 +11,12 @@ public class HookController : MonoBehaviour
     
     private Rigidbody2D carriedObject;
 
+    public AudioSource audioSource;
+    public AudioClip[] clickClips;
+
+    public float pitchMin = 0.9f;
+    public float pitchMax = 1.1f;
+
     private void OnEnable()
     {
         if (hookButtonAction != null)
@@ -50,7 +56,7 @@ public class HookController : MonoBehaviour
         {
             animator.SetTrigger("DropAndUp");
         }
-
+        PlayHookAudio();
         return true;
     }
     
@@ -90,7 +96,14 @@ public class HookController : MonoBehaviour
             carriedObject = null;
         }
     }
-    
+
+    void PlayHookAudio()
+    {
+        AudioClip clip = clickClips[UnityEngine.Random.Range(0, clickClips.Length)];
+        audioSource.pitch = UnityEngine.Random.Range(pitchMin, pitchMax);
+        audioSource.PlayOneShot(clip);
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

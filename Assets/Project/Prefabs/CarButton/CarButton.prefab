@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2213540174398599799}
   - component: {fileID: 2473589287206431051}
   - component: {fileID: 1050918965392313262}
+  - component: {fileID: 1594090310475541141}
   m_Layer: 7
   m_Name: CarButton
   m_TagString: Untagged
@@ -200,7 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb98146b3cd4f2f91eb7334ed77a1b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterMaxVelocityY: -0.1
   onPressed:
     m_PersistentCalls:
       m_Calls: []
@@ -208,6 +208,110 @@ MonoBehaviour:
   spritePressed: {fileID: 506447008, guid: 5a161a3a9a63ddf4a90ac4d31b259966, type: 3}
   spriteRenderer: {fileID: 263344442420982385}
   connectedWire: {fileID: 0}
+  audioSource: {fileID: 1594090310475541141}
+  clickClips:
+  - {fileID: 8300000, guid: bca25184b22dc42438b1362a0264beb8, type: 3}
+  - {fileID: 8300000, guid: 29d6e6690defe81498738ee9fb18ac3f, type: 3}
+  - {fileID: 8300000, guid: 104599d827b536f4ba1399f23de62af2, type: 3}
+  pitchMin: 0.9
+  pitchMax: 1.1
+--- !u!82 &1594090310475541141
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796238873464373241}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.15
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8143437465299838165
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,3 +405,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carButton: {fileID: 1050918965392313262}
   characterFeetMustBeHigherThan: {fileID: 2615982957290606040}
+  characterMaxVelocityY: -0.1
