@@ -5,6 +5,7 @@ public class CarController : MonoBehaviour
 {
     [SerializeField] public Rigidbody2D carBody;
     [SerializeField] private float carMaxAngle = 40;
+    [SerializeField] private float carMaxVelocity = 20;
 
     [SerializeField] public bool isEnabled = true;
 
@@ -18,5 +19,10 @@ public class CarController : MonoBehaviour
         float clamped = Mathf.Clamp(normalized, -carMaxAngle, carMaxAngle);
         
         carBody.rotation = clamped;
+
+        print(carBody.linearVelocity.magnitude);
+        
+        if (carBody.linearVelocity.magnitude > carMaxVelocity)
+            carBody.linearVelocity = carBody.linearVelocity.normalized * carMaxVelocity;
     }
 }
