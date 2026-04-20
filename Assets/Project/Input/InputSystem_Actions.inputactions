@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "WaterImpulse",
+                    "type": "Button",
+                    "id": "ab02a4e8-3ab1-4fed-b3e5-a4ed5abe754b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -239,6 +248,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Hook_Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "496ee963-c76b-4fe0-91e1-2f206b34d384",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "WaterImpulse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

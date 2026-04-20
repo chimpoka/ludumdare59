@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HelicopterAnimator : MonoBehaviour
 {
-    [SerializeField] private CarActions car;
     [SerializeField] private SpriteRenderer spriteRenderer;
     
     [SerializeField] private List<Sprite> sprites; // Count = 6
@@ -15,16 +14,6 @@ public class HelicopterAnimator : MonoBehaviour
     private float currentHelicopterAnimationSpeed = 0;
     private float animationTime;
     private int currentSpriteIndex;
-
-    private void OnEnable()
-    {
-        car.helicopterImpulseController.onImpulseTriggered += OnApplyImpulse;
-    }
-
-    private void OnDisable()
-    {
-        car.helicopterImpulseController.onImpulseTriggered -= OnApplyImpulse;
-    }
 
     private void FixedUpdate()
     {
@@ -42,7 +31,7 @@ public class HelicopterAnimator : MonoBehaviour
         }
     }
 
-    private void OnApplyImpulse()
+    public void ApplyImpulseAnimation()
     {
         currentHelicopterAnimationSpeed += addHelicopterAnimationSpeedPerImpulse;
     }
