@@ -2948,7 +2948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carBody: {fileID: 2447084338235066023}
-  carMaxAngle: 40
+  carMaxAngle: 28
 --- !u!114 &2968880193288573394
 MonoBehaviour:
   m_ObjectHideFlags: 0
