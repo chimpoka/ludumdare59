@@ -107,61 +107,6 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "0e4d7aa4-5b1d-42e0-b734-f57c2b8662b2",
-                    "path": "<Keyboard>/u",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "WheelImpulse_RearForward",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6074918a-762c-4be5-af7b-0ab5829c337d",
-                    "path": "<Keyboard>/o",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "WheelImpulse_FrontForward",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fcdfac8b-d05b-4348-b68c-65531ee83e83",
-                    "path": "<Keyboard>/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "WheelImpulse_RearBackwards",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cbfe1ac8-c816-4f54-a88c-39f9693c452c",
-                    "path": "<Keyboard>/i",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "WheelImpulse_FrontBackwards",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "af0b022f-bf73-4f1b-abcb-8e10bf66ec61",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "HelicopterImpulse",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "WASD",
                     "id": "b96e085b-a51d-4620-adf1-e30a18381beb",
                     "path": "2DVector",
@@ -246,39 +191,6 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Character_Fall",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "83752c09-ca21-4410-b269-d0c527ac801a",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Hook_Grab",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "496ee963-c76b-4fe0-91e1-2f206b34d384",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "WaterImpulse",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cdd8be05-1df4-41db-9263-85b6fc74e60c",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "LightningRod",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
