@@ -8,7 +8,7 @@ public class LightningVolume : MonoBehaviour
 
         if (other.attachedRigidbody == car.carBody)
         {
-            car.LightningRodController.lightningVolume = this;
+            car.lightningRodController.lightningVolume = this;
         }
     }
 
@@ -18,7 +18,7 @@ public class LightningVolume : MonoBehaviour
 
         if (other.attachedRigidbody == car.carBody)
         {
-            car.LightningRodController.lightningVolume = null;
+            car.lightningRodController.lightningVolume = null;
         }
     }
 }

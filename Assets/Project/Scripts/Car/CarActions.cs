@@ -10,7 +10,7 @@ public class CarActions : MonoBehaviour
     [SerializeField] public HelicopterImpulseController helicopterImpulseController;
     [SerializeField] public HookController hookController;
     [SerializeField] public CarInWaterController carInWaterController;
-    [SerializeField] public LightningRodController LightningRodController;
+    [SerializeField] public LightningRodController lightningRodController;
     [SerializeField] public Rigidbody2D carBody;
 
     public static CarActions instance;
@@ -53,5 +53,10 @@ public class CarActions : MonoBehaviour
     public void WaterPropellerImpulse()
     {
         carInWaterController.ApplyImpulse();
+    }
+
+    public void TryTriggerLightingRod()
+    {
+        lightningRodController.TryTriggerLightningRod();
     }
 }

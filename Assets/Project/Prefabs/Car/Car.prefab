@@ -1187,6 +1187,7 @@ Transform:
   - {fileID: 8084901788877372250}
   - {fileID: 3022935507124691797}
   - {fileID: 5503986792627057910}
+  - {fileID: 7341707653792735916}
   m_Father: {fileID: 2384869583393396610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3402664597347380427
@@ -2724,6 +2725,7 @@ GameObject:
   - component: {fileID: 5328899859511971619}
   - component: {fileID: 2018800756737674043}
   - component: {fileID: 1812945346138184057}
+  - component: {fileID: 6112157621694608126}
   m_Layer: 11
   m_Name: LightningRod
   m_TagString: Untagged
@@ -2769,7 +2771,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 006a1df64bc0d7845adabbc7f2df7190, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2835,8 +2837,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8509105e7efb437ba95f3997d8d91082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 5328899859511971619}
   impulseButtonAction: {fileID: 6703258328713518976, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   animator: {fileID: 2018800756737674043}
+  glowIntensity: 0
+  impulseController: {fileID: 6112157621694608126}
+--- !u!114 &6112157621694608126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369701924119864943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f7fc029986442e985afca58a6d570f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 2447084338235066023}
+  upImpulseStrength: 20
+  rightImpulseStrength: 200
+  impulseButtonAction: {fileID: 0}
+  helicopterAnimator: {fileID: 0}
 --- !u!1 &6475024563691827561
 GameObject:
   m_ObjectHideFlags: 0
@@ -3060,7 +3082,7 @@ MonoBehaviour:
   helicopterImpulseController: {fileID: 4648183877048229461}
   hookController: {fileID: 6282761212229562593}
   carInWaterController: {fileID: 2968880193288573394}
-  LightningRodController: {fileID: 1812945346138184057}
+  lightningRodController: {fileID: 1812945346138184057}
   carBody: {fileID: 2447084338235066023}
 --- !u!114 &3839168366668666294
 MonoBehaviour:
@@ -3438,6 +3460,7 @@ Transform:
   - {fileID: 5427531337625854081}
   - {fileID: 5418676394066441483}
   - {fileID: 6057951081516441119}
+  - {fileID: 6975031437591663005}
   m_Father: {fileID: 2384869583393396610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7718410223185632127
@@ -5413,6 +5436,100 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2814754857942000734, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
   m_PrefabInstance: {fileID: 1419661114303766976}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2825103701113819766
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 81698027421193811}
+    m_Modifications:
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: connectedWire
+      value: 
+      objectReference: {fileID: 4962508908210175542}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5871129093719771952}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryTriggerLightingRod
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CarActions, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050918965392313262, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.942
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.368
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.99998856
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0047913324
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.549
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796238873464373241, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+      propertyPath: m_Name
+      value: Button_LightningRod
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+--- !u!4 &7341707653792735916 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4816095055097032922, guid: cddcebc0ea6b6a0428a53f75b1c753df, type: 3}
+  m_PrefabInstance: {fileID: 2825103701113819766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3667447117555059584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5649,6 +5766,55 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2814754857942000734, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
   m_PrefabInstance: {fileID: 5056422922465671609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5178099993225295299
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6081790660810101348}
+    m_Modifications:
+    - target: {fileID: 2263127692205747345, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+      propertyPath: m_Name
+      value: Wire_LightningRod
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814754857942000734, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814754857942000734, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814754857942000734, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5869624973844009580, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a06ed4fc0323511448675052fb68e97d, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+--- !u!114 &4962508908210175542 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 216754481464953845, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+  m_PrefabInstance: {fileID: 5178099993225295299}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17214c97ae74b0db047cb63e99e5302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &6975031437591663005 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2814754857942000734, guid: c3a295cead0792048a5e550ecf34fc86, type: 3}
+  m_PrefabInstance: {fileID: 5178099993225295299}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7720765411633386383
 PrefabInstance:

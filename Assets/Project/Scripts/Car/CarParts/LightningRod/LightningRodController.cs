@@ -4,15 +4,25 @@ using UnityEngine.InputSystem;
 
 public class LightningRodController : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] public InputActionReference impulseButtonAction;
     [SerializeField] public Animator animator;
+    [SerializeField] private float glowIntensity;
+    [SerializeField] private HelicopterImpulseController impulseController;
 
     [NonSerialized] public LightningVolume lightningVolume;
 
     public bool isInLightningVolume => lightningVolume != null;
     
-
-
+    private void Awake()
+    {
+        spriteRenderer.material = new Material(spriteRenderer.material);
+    }
+    
+    private void LateUpdate()
+    {
+        spriteRenderer.material.SetFloat("_GlowIntensity", glowIntensity);
+    }
 
     private void OnEnable()
     {
@@ -55,5 +65,10 @@ public class LightningRodController : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void LightningHit_Event()
+    {
+        impulseController.ApplyImpulse();
     }
 }

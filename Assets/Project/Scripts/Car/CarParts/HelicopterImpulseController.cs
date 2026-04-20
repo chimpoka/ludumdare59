@@ -39,6 +39,6 @@ public class HelicopterImpulseController : MonoBehaviour
         rigidBody.AddForce(Vector2.up * upImpulseStrength, ForceMode2D.Impulse);
         rigidBody.AddForce(Vector2.right * rightImpulseStrength, ForceMode2D.Impulse);
         
-        helicopterAnimator.ApplyImpulseAnimation();
+        helicopterAnimator?.ApplyImpulseAnimation();
     }
 }
