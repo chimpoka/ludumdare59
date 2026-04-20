@@ -14,6 +14,8 @@ public class CarInWaterController : MonoBehaviour
     [SerializeField] private HelicopterAnimator helicopterAnimator;
     
     [NonSerialized] public WaterVolume waterVolume;
+
+    [SerializeField] public bool isEnabled = true;
     
     public bool isInWater => waterVolume != null;
     
@@ -49,6 +51,9 @@ public class CarInWaterController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isEnabled)
+            return;
+        
         if (!isInWater)
             return;
 
