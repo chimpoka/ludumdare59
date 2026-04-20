@@ -363,9 +363,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingTransform: {fileID: 5824133771562945174}
   openSpeed: 0.1
-  closeSpeed: 0.3
+  closeSpeed: -0.3
+  openWheelsSpeed: -3
+  closeWheelsSpeed: 9
   maxOpenPosition: 12
   minClosePosition: 0
+  gateWheels:
+  - {fileID: 6790641393364283493}
+  - {fileID: 475543689262643138}
+  - {fileID: 174220646176316203}
+  - {fileID: 2415712385796810035}
+  - {fileID: 3536600764329561621}
+  - {fileID: 4023919464566668647}
 --- !u!1 &2662342375485875854
 GameObject:
   m_ObjectHideFlags: 0
