@@ -7,8 +7,8 @@ public class HelicopterImpulseController : MonoBehaviour
     public Rigidbody2D rigidBody;
     public float impulseStrength = 50f; 
     public InputActionReference impulseButtonAction;
-    
-    public event Action onImpulseTriggered;
+
+    public HelicopterAnimator helicopterAnimator;
 
     private void OnEnable()
     {
@@ -35,6 +35,6 @@ public class HelicopterImpulseController : MonoBehaviour
         
         rigidBody.AddForce(Vector2.up * impulseStrength, ForceMode2D.Impulse);
         
-        onImpulseTriggered?.Invoke();
+        helicopterAnimator.ApplyImpulseAnimation();
     }
 }

@@ -8,11 +8,13 @@ public class CarInWaterController : MonoBehaviour
     [SerializeField] private float gravityUp;
     [SerializeField] private float gravityDown;
     [SerializeField] private float horizontalFriction;
-    [SerializeField] private float impulseStrength = 50f; 
+    [SerializeField] private float inWaterImpulseStrength = 50f; 
+    [SerializeField] private float onGroundImpulseStrength = 20f; 
     [SerializeField] private InputActionReference impulseButtonAction;
+    [SerializeField] private HelicopterAnimator helicopterAnimator;
     
     [NonSerialized] public WaterVolume waterVolume;
-    public event Action onImpulseTriggered;
+  
     public static CarInWaterController instance;
     
     public bool isInWater => waterVolume != null;
@@ -42,15 +44,14 @@ public class CarInWaterController : MonoBehaviour
 
     public void ApplyImpulse(InputAction.CallbackContext ctx = default)
     {
-        if (!isInWater)
-            return;
-        
         if (carBody == null) 
             return;
+
+        float strength = isInWater ? inWaterImpulseStrength : onGroundImpulseStrength;
         
-        carBody.AddForce(Vector2.right * impulseStrength, ForceMode2D.Impulse);
+        carBody.AddForce(Vector2.right * strength, ForceMode2D.Impulse);
         
-        onImpulseTriggered?.Invoke();
+        helicopterAnimator.ApplyImpulseAnimation();
     }
 
     private void FixedUpdate()
