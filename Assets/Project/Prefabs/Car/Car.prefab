@@ -3130,7 +3130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carBody: {fileID: 2447084338235066023}
-  carMaxAngle: 28
+  carMaxAngle: 20
   isEnabled: 1
 --- !u!114 &2968880193288573394
 MonoBehaviour:
@@ -3145,11 +3145,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carBody: {fileID: 2447084338235066023}
-  gravityUp: 2
+  gravityUp: 1.5
   gravityDown: 0
   horizontalFriction: 0.1
-  inWaterImpulseStrength: 50
-  onGroundImpulseStrength: 5
+  inWaterImpulseStrength: 40
+  onGroundImpulseStrength: 3
   impulseButtonAction: {fileID: -6222292386990485914, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   helicopterAnimator: {fileID: 7867531487945541240}
   isEnabled: 1
