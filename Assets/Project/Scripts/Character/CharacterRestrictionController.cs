@@ -5,6 +5,9 @@ public class CharacterRestrictionController : MonoBehaviour
     private void FixedUpdate()
     {
         var restrictions = CarActions.instance.carRestrictions;
+        
+        if (restrictions == null)
+            return;
 
         if (transform.position.x > restrictions.rightRestriction.position.x ||
             transform.position.x < restrictions.leftRestriction.position.x ||

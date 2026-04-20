@@ -1499,6 +1499,37 @@ MonoBehaviour:
     m_Bits: 512
   hookButtonAction: {fileID: 3052674748585113146, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   grabRadius: 0.4
+--- !u!1 &3565615958030954400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 383382838759174525}
+  m_Layer: 11
+  m_Name: CharacterRespawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &383382838759174525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3565615958030954400}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.13, y: -0.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2384869583393396610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3611792634874228062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,6 +2994,7 @@ GameObject:
   - component: {fileID: 5871129093719771952}
   - component: {fileID: 3839168366668666294}
   - component: {fileID: 2968880193288573394}
+  - component: {fileID: 637323680743483738}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -3083,6 +3115,7 @@ MonoBehaviour:
   hookController: {fileID: 6282761212229562593}
   carInWaterController: {fileID: 2968880193288573394}
   lightningRodController: {fileID: 1812945346138184057}
+  carRestrictions: {fileID: 637323680743483738}
   carBody: {fileID: 2447084338235066023}
 --- !u!114 &3839168366668666294
 MonoBehaviour:
@@ -3098,6 +3131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carBody: {fileID: 2447084338235066023}
   carMaxAngle: 28
+  isEnabled: 1
 --- !u!114 &2968880193288573394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3118,6 +3152,24 @@ MonoBehaviour:
   onGroundImpulseStrength: 5
   impulseButtonAction: {fileID: -6222292386990485914, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   helicopterAnimator: {fileID: 7867531487945541240}
+  isEnabled: 1
+--- !u!114 &637323680743483738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6740419751319084720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255d3d337de8400985e0dc819bbf9748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upRestriction: {fileID: 6418289711596073247}
+  downRestriction: {fileID: 2918061170682985469}
+  leftRestriction: {fileID: 4042967020186773982}
+  rightRestriction: {fileID: 2517398895413472990}
+  characterRespawnPoint: {fileID: 383382838759174525}
 --- !u!1 &7000803302038984034
 GameObject:
   m_ObjectHideFlags: 0
@@ -3582,6 +3634,7 @@ Transform:
   - {fileID: 3109271718333316748}
   - {fileID: 1115110971936412871}
   - {fileID: 5535108255755150558}
+  - {fileID: 383382838759174525}
   m_Father: {fileID: 1039031493793363316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2447084338235066023
